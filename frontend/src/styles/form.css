@@ -1,0 +1,538 @@
+/* ==========================================================================
+   LOAN APPLICATION FORM & APPRAISAL ENGINE STYLES (FINTECH GRADE)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Two-Column Grid Layout
+   -------------------------------------------------------------------------- */
+.form-layout-grid {
+  display: grid;
+  grid-template-columns: 1.45fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (max-width: 1024px) {
+  .form-layout-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Multi-Step Wizard Stepper Navigation
+   -------------------------------------------------------------------------- */
+.form-stepper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  padding: 1rem 1.25rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  position: relative;
+}
+
+.step-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+  text-align: left;
+}
+
+.step-item:hover:not(:disabled) {
+  background: rgba(14, 165, 233, 0.06);
+}
+
+.step-circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.825rem;
+  font-weight: 700;
+  background: var(--bg-subtle);
+  color: var(--text-muted);
+  border: 1.5px solid var(--border-color);
+  transition: all var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.step-item.active .step-circle {
+  background: var(--primary-accent);
+  color: #ffffff;
+  border-color: var(--primary-accent);
+  box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.2);
+}
+
+.step-item.completed .step-circle {
+  background: var(--success-color);
+  color: #ffffff;
+  border-color: var(--success-color);
+}
+
+.step-label {
+  display: flex;
+  flex-direction: column;
+}
+
+.step-number {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.step-name {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.step-item.active .step-name {
+  color: var(--primary-accent);
+}
+
+.step-divider {
+  flex: 1;
+  height: 2px;
+  background: var(--border-color);
+  margin: 0 0.5rem;
+}
+
+.step-divider.filled {
+  background: var(--success-color);
+}
+
+@media (max-width: 640px) {
+  .step-label {
+    display: none;
+  }
+  .form-stepper {
+    padding: 0.75rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Form Container & Fieldsets
+   -------------------------------------------------------------------------- */
+.form-card {
+  padding: 2.25rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.fieldset-group {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+.legend-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+@media (max-width: 680px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.form-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-main);
+  letter-spacing: -0.01em;
+}
+
+.form-label .required {
+  color: var(--danger-color);
+  margin-left: 2px;
+  font-weight: 700;
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.7rem 0.95rem;
+  font-size: 0.925rem;
+  font-family: inherit;
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  background-color: #ffffff;
+  color: var(--text-main);
+  transition: all var(--transition-fast);
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--primary-accent);
+  box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.18);
+}
+
+.form-control.is-invalid {
+  border-color: var(--danger-color) !important;
+  background-color: #fff5f5 !important;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15) !important;
+}
+
+.form-control.is-valid {
+  border-color: var(--success-color) !important;
+}
+
+.field-hint {
+  font-size: 0.775rem;
+  color: var(--text-muted);
+  line-height: 1.35;
+}
+
+.error-message {
+  font-size: 0.775rem;
+  color: var(--danger-color);
+  font-weight: 600;
+  margin-top: 0.2rem;
+}
+
+/* --------------------------------------------------------------------------
+   Quick Preset Chips (Amount & Tenure)
+   -------------------------------------------------------------------------- */
+.preset-chips-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.preset-chip {
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-color);
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.35rem 0.75rem;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  user-select: none;
+}
+
+.preset-chip:hover {
+  background: #ffffff;
+  color: var(--primary-accent);
+  border-color: var(--primary-accent);
+  transform: translateY(-1px);
+}
+
+.preset-chip.active {
+  background: rgba(14, 165, 233, 0.1);
+  color: var(--primary-accent);
+  border-color: var(--primary-accent);
+  font-weight: 700;
+  box-shadow: 0 1px 3px rgba(14, 165, 233, 0.2);
+}
+
+/* --------------------------------------------------------------------------
+   Synced Range Slider + Number Input
+   -------------------------------------------------------------------------- */
+.slider-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.slider-input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.range-slider {
+  flex: 1;
+  height: 6px;
+  border-radius: 3px;
+  accent-color: var(--primary-accent);
+  cursor: pointer;
+  background: var(--border-color);
+  transition: all var(--transition-fast);
+}
+
+.range-slider:hover {
+  filter: brightness(1.05);
+}
+
+/* --------------------------------------------------------------------------
+   Credit Policy Eligibility Live Banner
+   -------------------------------------------------------------------------- */
+.policy-eligibility-banner {
+  padding: 0.85rem 1.1rem;
+  border-radius: var(--radius-md);
+  margin-top: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.825rem;
+  line-height: 1.4;
+  transition: all var(--transition-fast);
+}
+
+.policy-eligibility-banner.passed {
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  color: #065f46;
+}
+
+.policy-eligibility-banner.warning {
+  background: rgba(245, 158, 11, 0.08);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  color: #92400e;
+}
+
+.policy-badge-icon {
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Wizard Step Navigation Footer Buttons
+   -------------------------------------------------------------------------- */
+.wizard-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-color);
+  gap: 1rem;
+}
+
+/* --------------------------------------------------------------------------
+   EMI Preview Card (Sticky Side Pane)
+   -------------------------------------------------------------------------- */
+.calculator-card {
+  position: sticky;
+  top: 5.5rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+}
+
+.calc-header {
+  border-bottom: 1px solid var(--border-color);
+  padding: 1.5rem 1.5rem 1rem 1.5rem;
+}
+
+.emi-display-box {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  color: #ffffff;
+  padding: 1.75rem 1.5rem;
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.emi-label {
+  font-size: 0.775rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+.emi-value {
+  font-size: 2.35rem;
+  font-weight: 800;
+  color: #38bdf8;
+  margin: 0.35rem 0;
+  letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
+  font-family: var(--font-heading);
+}
+
+.emi-formula-hint {
+  font-size: 0.725rem;
+  color: #64748b;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Amortization Split Visual Bar */
+.amort-split-container {
+  padding: 1.25rem 1.5rem 0.5rem 1.5rem;
+}
+
+.amort-split-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.775rem;
+  margin-bottom: 0.4rem;
+  font-weight: 600;
+}
+
+.amort-split-bar {
+  display: flex;
+  height: 10px;
+  border-radius: 9999px;
+  overflow: hidden;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-color);
+}
+
+.split-principal {
+  background: #0ea5e9;
+  transition: width 0.3s ease;
+}
+
+.split-interest {
+  background: #f59e0b;
+  transition: width 0.3s ease;
+}
+
+.amort-split-legend {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.4rem;
+  font-size: 0.725rem;
+  color: var(--text-muted);
+}
+
+.calc-breakdown-list {
+  padding: 1rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.breakdown-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.875rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px dashed var(--border-color);
+}
+
+.breakdown-label {
+  color: var(--text-muted);
+}
+
+.breakdown-value {
+  font-weight: 700;
+  color: var(--text-main);
+  font-variant-numeric: tabular-nums;
+}
+
+/* DTI Visual Meter */
+.dti-gauge-box {
+  margin: 0 1.5rem 1.25rem 1.5rem;
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  font-size: 0.825rem;
+}
+
+.dti-safe {
+  background-color: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  color: #065f46;
+}
+
+.dti-warning {
+  background-color: rgba(245, 158, 11, 0.08);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  color: #92400e;
+}
+
+.dti-danger {
+  background-color: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  color: #991b1b;
+}
+
+.dti-meter-track {
+  height: 6px;
+  background: rgba(0, 0, 0, 0.08);
+  border-radius: 9999px;
+  margin: 0.6rem 0 0.3rem 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.dti-meter-fill {
+  height: 100%;
+  border-radius: 9999px;
+  transition: width 0.3s ease;
+}
+
+/* --------------------------------------------------------------------------
+   Modal Underwriting Sanction Preview Sheet
+   -------------------------------------------------------------------------- */
+.sanction-sheet {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  margin-top: 1rem;
+}
+
+.sanction-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1.5px solid #cbd5e1;
+  padding-bottom: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.sanction-title {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #0f172a;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.sanction-seal {
+  font-size: 0.7rem;
+  font-weight: 700;
+  background: #e2e8f0;
+  color: #475569;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+}
+
+/* History Section */
+.history-section {
+  margin-top: 3rem;
+}
