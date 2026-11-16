@@ -1,4 +1,4 @@
-package com.kun.ecommerce_fullstack.config;
+package com.example.loanmanagement.config;
 
 import java.util.Date;
 

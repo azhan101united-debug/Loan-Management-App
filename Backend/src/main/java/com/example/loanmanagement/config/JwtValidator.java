@@ -1,4 +1,4 @@
-package com.kun.ecommerce_fullstack.config;
+package com.example.loanmanagement.config;
 
 import java.io.IOException;
 import java.security.Key;
